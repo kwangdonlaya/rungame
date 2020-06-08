@@ -4,24 +4,27 @@ using UnityEngine;
 
 public class bg : MonoBehaviour
 {
+    Material material;
+    Vector2 offset;
 
-    public float bgSpeed;
-    float bgPositionX;
-    float bg1PositionX;
+    public float xVelocity, yVelocity;
+
+    private void Awake()
+    {
+        material = GetComponent<Renderer>().material;
+    }
     // Use this for initialization
     void Start()
     {
-        bgPositionX = transform.position.x;
-        bg1PositionX = GameObject.Find("bg1_0").transform.position.x;
+        // offset = new Vector2(xVelocity, yVelocity);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(transform.position.x + bgSpeed, transform.position.y, transform.position.z);
-        if (transform.position.x < (bgPositionX * -1f))
-        {
-            transform.position = new Vector3(bg1PositionX, transform.position.y, transform.position.z);
-        }
+        offset = new Vector2(xVelocity, yVelocity);
+        material.mainTextureOffset += offset * Time.deltaTime;
     }
 }
+
+

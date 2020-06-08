@@ -64,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\bg.cs" />
-    <Compile Include="Assets\floor.cs" />
     <Compile Include="Assets\girl.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/WEERA_COM/Desktop/rungame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
