@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class girl : MonoBehaviour
 {
+    [SerializeField] KeyCode Jump;
+    [SerializeField] KeyCode Slide;
     public float jumpSpeed;
     Rigidbody2D rb;
     Animator am;
     int jump;
+
     //Use this for initialzation
     void Start()
     {
@@ -18,22 +21,17 @@ public class girl : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump") && jump < 2)
+        if (Input.GetKeyDown(Jump) && jump < 2)
         {
             jump++;
             am.SetBool("Jump", true);
-            rb.velocity = new Vector2(rb.velocity.x, 5f);
-            
-        }
-        if (Input.GetButtonUp("Jump"))
-        {
-            am.SetBool("Jump", false);
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         }
     }
     void OnCollisionEnter2D(Collision2D coll)
     {
-        am.SetBool("jump", false);
         jump = 0;
+        am.SetBool("Jump", false);
     }
 }
     

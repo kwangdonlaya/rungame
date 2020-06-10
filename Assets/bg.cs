@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class bg : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class bg : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        // offset = new Vector2(xVelocity, yVelocity);
+
     }
 
     // Update is called once per frame
@@ -24,7 +25,9 @@ public class bg : MonoBehaviour
     {
         offset = new Vector2(xVelocity, yVelocity);
         material.mainTextureOffset += offset * Time.deltaTime;
+        //(Bonustime Mechanic)
     }
+
 }
 
 
